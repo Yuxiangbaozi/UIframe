@@ -15,3 +15,18 @@
 .g-button[data-v-cc3ebc]:focus {
   outline: none;
 }
+.g-button > .view[data-v-cc3ebc] {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+.g-button > .view > .icon[data-v-cc3ebc] {
+  margin-right: 0.3em;
+}
+.g-button.icon-right > .view[data-v-cc3ebc] {
+  flex-direction: row-reverse;
+}
+.g-button.icon-right > .view > .icon[data-v-cc3ebc] {
+  margin-left: 0.3em;
+}
