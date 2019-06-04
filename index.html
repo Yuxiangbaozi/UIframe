@@ -13,7 +13,7 @@
             --font-size: 14px;
             --button-bg: white;
             --button-active-bg: #eee;
-            --border-radius: 4px;
+            --border-radius: 5px;
             --color: #333;
             --border-color: #999;
             --border-color-hover: #222;
@@ -23,17 +23,21 @@
 </head>
 <body>
 <div id="app">
-    <g-button icon="shezhi" iconposition="right">
+    <g-button icon="shezhi" iconposition="right" @load="loading1 = !loading1" :loading="loading1">
         按我
     </g-button>
-    <g-button icon="shezhi" >
+    <g-button icon="shezhi" :loading="false">
         按我
     </g-button>
-    <g-button>
+    <g-button :loading="true">
         按我
     </g-button>
+    <g-button-group>
+        <g-button icon="left">上一页</g-button>
+        <g-button icon="right">下一页</g-button>
+    </g-button-group>
 </div>
 <script src="./src/app.js"></script>
-<script src="//at.alicdn.com/t/font_1226087_jiko8z0y1m.js"></script>
+<script src="//at.alicdn.com/t/font_1226087_yangcpoihn.js"></script>
 </body>
 </html>

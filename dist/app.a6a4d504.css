@@ -7,6 +7,14 @@
   background: var(--button-bg);
   vertical-align: top;
 }
+@keyframes spin-data-v-cc3ebc {
+0% {
+    transform: rotate(0deg);
+}
+100% {
+    transform: rotate(360deg);
+}
+}
 .g-button[data-v-cc3ebc]:hover {
   border-color: var(--border-color-hover);
 }
@@ -26,6 +34,11 @@
   margin-right: 0.3em;
   margin-left: 0;
 }
+.g-button > .view > .loading[data-v-cc3ebc] {
+  margin-right: 0.3em;
+  margin-left: 0;
+  animation: 1.5s spin-data-v-cc3ebc infinite linear;
+}
 .g-button.icon-right > .view[data-v-cc3ebc] {
   flex-direction: row-reverse;
 }
@@ -39,4 +52,17 @@
   vertical-align: -0.15em;
   fill: currentColor;
   overflow: hidden;
+}
+.g-button-group[data-v-8280f1] {
+  display: inline-flex;
+  vertical-align: top;
+}
+.g-button-group > .g-button[data-v-8280f1] {
+  border-radius: 0;
+}
+.g-button-group > .g-button[data-v-8280f1]:first-child {
+  border-radius: 5px 0 0 5px;
+}
+.g-button-group > .g-button[data-v-8280f1]:last-child {
+  border-radius: 0 5px 5px 0;
 }
