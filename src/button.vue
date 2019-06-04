@@ -11,7 +11,16 @@
 
 <script>
 	export default {
-		props:['icon','iconposition']
+		props:{
+			icon:{},
+			iconposition:{
+				type: String,
+				default: 'left',
+				validate(value){
+					return !(value !== 'left' && value !== 'right');
+				},
+			},
+		}
 	}
 </script>
 
@@ -19,7 +28,7 @@
 	.g-button {
 		font-size: var(--font-size);
 		height: var(--button-height);
-		padding: 0 1em;
+		padding: 0 0.85em;
 		border-radius: var(--border-radius);
 		border: 1px solid var(--border-color);
 		background: var(--button-bg);
@@ -31,12 +40,12 @@
 			justify-content: center;
 			align-items: center;
 			flex-direction: row;
-			>.icon{margin-right: 0.3em;}
+			>.icon{margin-right: 0.3em; margin-left: 0}
 			}
 		}
 		&.icon-right{>.view{
 			flex-direction: row-reverse;
-			>.icon{margin-left: 0.3em;}
+			>.icon{margin-right: 0; margin-left: 0.3em;}
 			}
 		}
 	}
