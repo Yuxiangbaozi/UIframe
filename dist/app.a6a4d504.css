@@ -5,6 +5,7 @@
   border-radius: var(--border-radius);
   border: 1px solid var(--border-color);
   background: var(--button-bg);
+  vertical-align: top;
 }
 .g-button[data-v-cc3ebc]:hover {
   border-color: var(--border-color-hover);
@@ -21,14 +22,21 @@
   align-items: center;
   flex-direction: row;
 }
-.g-button > .view > .icon[data-v-cc3ebc] {
+.g-button > .view > .g-icon[data-v-cc3ebc] {
   margin-right: 0.3em;
   margin-left: 0;
 }
 .g-button.icon-right > .view[data-v-cc3ebc] {
   flex-direction: row-reverse;
 }
-.g-button.icon-right > .view > .icon[data-v-cc3ebc] {
+.g-button.icon-right > .view > .g-icon[data-v-cc3ebc] {
   margin-right: 0;
   margin-left: 0.3em;
+}
+.g-icon[data-v-c1d219] {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
 }
