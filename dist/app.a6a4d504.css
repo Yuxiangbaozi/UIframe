@@ -59,10 +59,15 @@
 }
 .g-button-group > .g-button[data-v-8280f1] {
   border-radius: 0;
+  margin-left: -1px;
 }
 .g-button-group > .g-button[data-v-8280f1]:first-child {
   border-radius: 5px 0 0 5px;
 }
 .g-button-group > .g-button[data-v-8280f1]:last-child {
   border-radius: 0 5px 5px 0;
+}
+.g-button-group > .g-button[data-v-8280f1]:hover {
+  border-color: red;
+  z-index: 1;
 }
