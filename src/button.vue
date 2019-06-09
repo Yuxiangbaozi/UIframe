@@ -1,6 +1,5 @@
 <template>
-	<button class="g-button" :class="{[`icon-${iconposition}`]: true}"
-	        @click="$emit('load')">
+	<button class="g-button" :class="{[`icon-${iconposition}`]: true}" @click="$emit('load')">
 		<div class="view">
 			<g-icon v-if="icon && !loading" :icon="icon"></g-icon>
 			<g-icon class="loading" v-if="loading" icon="loading"></g-icon>
@@ -10,6 +9,7 @@
 </template>
 
 <script>
+	import Icon from './icon'
 	export default {
 		name: "g-button",
 		props:{
@@ -21,11 +21,14 @@
 			iconposition: {
 				type: String,
 				default: 'left',
-				validate(value){
+				validate :function(value){
 					return !(value !== 'left' && value !== 'right');
-				},
-			},
-		}
+				}
+			}
+		},
+		components: {
+			'g-icon' : Icon,
+		},
 	}
 </script>
 
