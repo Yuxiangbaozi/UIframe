@@ -76,18 +76,4 @@ describe('Button', () => {
 		bt.$el.remove()
 		bt.$destroy()
 	})
-
-	it('点击 button 触发 click 事件', () => {
-		const Constructor = Vue.extend(Button)
-		const vm = new Constructor({
-			propsData: {
-				icon: 'shezhi',
-			}
-		}).$mount()
-
-		const callback = sinon.fake()
-		vm.$on('click', callback)
-		vm.$el.click()
-		expect(callback).to.have.been.called
-	})
 })
