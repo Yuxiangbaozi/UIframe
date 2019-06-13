@@ -23,19 +23,30 @@
 </head>
 <body>
 <div id="app">
+    <div>
+        <g-input value="张三" disabled></g-input>
+        <g-input value="李四" readonly></g-input>
+        <g-input value="王八"></g-input>
+    </div>
+    <div>
+        <g-input value="陈五" error="不能少于两个汉子字符"></g-input>
+    </div>
+    <div>
     <g-button icon="shezhi" iconposition="right" @load="loading1 = !loading1" :loading="loading1">
         按我
     </g-button>
-    <g-button icon="shezhi" :loading="false">
-        按我
-    </g-button>
-    <g-button :loading="true">
-        按我
-    </g-button>
-    <g-button-group>
-        <g-button icon="left">上一页</g-button>
-        <g-button icon="right">下一页</g-button>
-    </g-button-group>
+        <g-button icon="shezhi" :loading="false">
+            按我
+        </g-button>
+        <g-button :loading="true">
+            按我
+        </g-button>
+        <g-button-group>
+            <g-button icon="left">上一页</g-button>
+            <g-button icon="right">下一页</g-button>
+        </g-button-group>
+    </div>
+
 </div>
 <script src="./src/app.js"></script>
 </body>
