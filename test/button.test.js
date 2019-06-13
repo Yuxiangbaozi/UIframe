@@ -1,8 +1,12 @@
 import chai from "chai";
-
-const expect = chai.expect;
+import sinonChai from 'sinon-chai'
+import sinon from 'sinon'
 import Vue from 'vue'
 import Button from '../src/button'
+
+const expect = chai.expect;
+
+chai.use(sinonChai);
 
 Vue.config.productionTip = false
 Vue.config.devtools = false
@@ -75,5 +79,19 @@ describe('Button', () => {
 		expect(flexDirection).to.eq('row-reverse')
 		bt.$el.remove()
 		bt.$destroy()
+	})
+
+	it('点击 button 触发 click 事件', () => {
+		const Constructor = Vue.extend(Button)
+		const bt = new Constructor({
+			propsData: {
+				icon: 'settings',
+			}
+		}).$mount()
+
+		const callback = sinon.fake();
+		bt.$on('click', callback)
+		bt.$el.click()
+		expect(callback).to.have.been.called
 	})
 })
