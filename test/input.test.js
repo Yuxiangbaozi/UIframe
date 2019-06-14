@@ -83,9 +83,14 @@ describe('Input', () => {
 				const callback = sinon.fake();
 				ip.$on(events,callback)
 				let event = new Event(events)
+				Object.defineProperty(
+						event, 'target', {
+							value: {value: '123'}, enumerable: true
+						}
+				)
 				let inputElement = ip.$el.querySelector('input')
 				inputElement.dispatchEvent(event)
-				expect(callback).to.have.been.calledWith(event)
+				expect(callback).to.have.been.calledWith('123')
 			})
 		})
 	})

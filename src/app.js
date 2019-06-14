@@ -13,19 +13,20 @@ new Vue({
 	el: '#app',
 	data: {
 		loading1: false,
+		message : '陈',
 	},
 	methods: {
 		inputChange: function (xxx) {
-			console.log(xxx.target.value)
+			console.log(xxx)
 		},
 		inputFocus: function (xxx) {
-			console.log(xxx.target.value)
+			console.log(xxx)
 		},
 		inputInput: function (xxx) {
-			console.log(xxx.target.value)
+			console.log(xxx)
 		},
 		inputBlur: function (xxx) {
-			console.log(xxx.target.value)
+			console.log(xxx)
 		}
 	}
 });

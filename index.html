@@ -30,6 +30,8 @@
     </div>
     <div>
         <g-input value="陈五" error="不能少于两个汉子字符"></g-input>
+        <g-input v-model="message"></g-input>
+        <p>{{message}}</p>
     </div>
     <div>
     <g-button icon="shezhi" iconposition="right" @click="loading1 = !loading1" :loading="loading1">
