@@ -23,6 +23,31 @@
 </head>
 <body>
 <div id="app">
+    <div style="border: 1px solid red;">
+        <g-row gutter="20">
+            <g-col span="2">1</g-col>
+            <g-col span="22">2</g-col>
+        </g-row>
+        <g-row>
+            <g-col span="2">1</g-col>
+            <g-col span="16" offset="1">2</g-col>
+            <g-col span="3" offset="2">3</g-col>
+        </g-row>
+        <g-row>
+            <g-col>1</g-col>
+            <g-col>2</g-col>
+            <g-col>3</g-col>
+            <g-col>4</g-col>
+        </g-row>
+        <g-row>
+            <g-col>1</g-col>
+            <g-col>2</g-col>
+            <g-col>3</g-col>
+            <g-col>4</g-col>
+            <g-col>5</g-col>
+        </g-row>
+    </div>
+    <hr>
     <div>
         <g-input value="张三" disabled></g-input>
         <g-input value="李四" readonly></g-input>
@@ -30,6 +55,8 @@
     </div>
     <div>
         <g-input value="陈五" error="不能少于两个汉子字符"></g-input>
+    </div>
+    <div>
         <g-input v-model="message"></g-input>
         <p>{{message}}</p>
     </div>

@@ -63,14 +63,14 @@ describe('Button', () => {
 		bt.$destroy()
 	})
 
-	it('设置 iconPosition 可以改变 位置', () => {
+	it('设置 iPosition 可以改变 位置', () => {
 		const div = document.createElement('div')
 		document.body.appendChild(div)
 		const Constructor = Vue.extend(Button)
 		const bt = new Constructor({
 			propsData: {
 				icon: 'shezhi',
-				iconposition: 'right'
+				iPosition: 'right'
 			}
 		}).$mount(div)
 

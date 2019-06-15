@@ -1,5 +1,5 @@
 <template>
-	<button class="g-button" :class="{[`icon-${iconposition}`]: true}" @click="$emit('click')">
+	<button class="g-button" :class="{[`icon-${iPosition}`]: true}" @click="$emit('click')">
 		<div class="view">
 			<g-icon v-if="icon && !loading" :icon="icon"></g-icon>
 			<g-icon class="loading" v-if="loading" icon="loading"></g-icon>
@@ -18,7 +18,7 @@
 				type: Boolean,
 				default: false,
 			},
-			iconposition: {
+			iPosition: {
 				type: String,
 				default: 'left',
 				validate :function(value){
