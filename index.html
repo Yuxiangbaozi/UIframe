@@ -24,26 +24,20 @@
 <body>
 <div id="app">
     <div style="border: 1px solid red;">
-        <g-row gutter="20">
-            <g-col span="2">
-                <g-row align="left">
-                    <g-col>1</g-col>
-                    <g-col>2</g-col>
-                    <g-col>3</g-col>
-                </g-row>
-            </g-col>
-            <g-col span="22">
-                <g-row align="right">
-                    <g-col>1</g-col>
-                    <g-col>2</g-col>
-                    <g-col>3</g-col>
-                </g-row>
-            </g-col>
+        <g-row>
+            <g-col span="2"
+                   :narrow-pc="{span:8}"
+                   :pc="{span:13}"
+                   :wide-pc="{span:18}"></g-col>
+            <g-col span="22"
+                   :narrow-pc="{span:16}"
+                   :pc="{span:11}"
+                   :wide-pc="{span:6}"></g-col>
         </g-row>
         <g-row>
-            <g-col span="2">1</g-col>
-            <g-col span="16" offset="1">2</g-col>
-            <g-col span="3" offset="2">3</g-col>
+            <g-col span="4" :phone="{span:5}">1</g-col>
+            <g-col span="17" :phone="{span:14}">2</g-col>
+            <g-col span="3" :phone="{span:5}">3</g-col>
         </g-row>
         <g-row>
             <g-col>1</g-col>

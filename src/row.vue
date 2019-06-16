@@ -11,7 +11,7 @@
 			gutter : [String,Number],
 			align : {
 				type: String,
-				validate(value){
+				validator(value){
 					return ['left','right','center'].includes(value)
 				}
 			}

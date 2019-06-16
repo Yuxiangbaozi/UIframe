@@ -21,7 +21,7 @@
 			iPosition: {
 				type: String,
 				default: 'left',
-				validate :function(value){
+				validator :function(value){
 					return !(value !== 'left' && value !== 'right');
 				}
 			}
