@@ -18,39 +18,28 @@
             --border-color: #999;
             --border-color-hover: #222;
         }
-        #app{margin: 20px;}
+        .demo{
+            border: 1px solid blue;
+        }
     </style>
 </head>
 <body>
 <div id="app">
+    <g-layout>
+        <g-header class="demo"></g-header>
+        <g-content class="demo"></g-content>
+        <g-footer class="demo"></g-footer>
+    </g-layout>
     <div style="border: 1px solid red;">
         <g-row>
             <g-col span="2"
                    :narrow-pc="{span:8}"
                    :pc="{span:13}"
-                   :wide-pc="{span:18}"></g-col>
+                   :wide-pc="{span:18}">1</g-col>
             <g-col span="22"
                    :narrow-pc="{span:16}"
                    :pc="{span:11}"
-                   :wide-pc="{span:6}"></g-col>
-        </g-row>
-        <g-row>
-            <g-col span="4" :phone="{span:5}">1</g-col>
-            <g-col span="17" :phone="{span:14}">2</g-col>
-            <g-col span="3" :phone="{span:5}">3</g-col>
-        </g-row>
-        <g-row>
-            <g-col>1</g-col>
-            <g-col>2</g-col>
-            <g-col>3</g-col>
-            <g-col>4</g-col>
-        </g-row>
-        <g-row>
-            <g-col>1</g-col>
-            <g-col>2</g-col>
-            <g-col>3</g-col>
-            <g-col>4</g-col>
-            <g-col>5</g-col>
+                   :wide-pc="{span:6}">2</g-col>
         </g-row>
     </div>
     <hr>
@@ -81,7 +70,6 @@
             <g-button icon="right">下一页</g-button>
         </g-button-group>
     </div>
-
 </div>
 <script src="./src/app.js"></script>
 </body>

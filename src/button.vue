@@ -11,7 +11,7 @@
 <script>
 	import Icon from './icon'
 	export default {
-		name: "button",
+		name: "g-button",
 		props:{
 			icon: {},
 			loading: {

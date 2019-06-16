@@ -18,7 +18,7 @@
 		return valid
 	})
 	export default {
-		name: "column",
+		name: "g-column",
 		props: {
 			span: [Number,String],
 			offset: [Number,String],

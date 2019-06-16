@@ -1,6 +1,6 @@
 <template>
 	<svg class="g-icon" aria-hidden="true">
-		<use :xlink:href=`#i-${icon}`></use>
+		<use v-bind:xlink:href=`#i-${icon}`></use>
 	</svg>
 </template>
 
