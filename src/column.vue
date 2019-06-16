@@ -32,16 +32,29 @@
 				gutter: 0,
 			}
 		},
+		methods: {
+			aa(obj,str = ''){
+				let arr = []
+				if (!obj) {return []}
+				if (obj.span) {
+					arr.push(`col-${str}${obj.span}`)
+				}
+				if (obj.offset) {
+					arr.push(`offset-${str}${obj.offset}`)
+				}
+				return arr
+			}
+		},
 		computed: {
 			colClasses(){
 				let {span,offset,pad,narrowPc,pc,widePc} = this
+				let aa = this.aa
 				return [
-					`col-${span}`,
-					offset ? [`offset-${offset}`] : [],
-					...(pad ? [`col-pad-${pad.span}`] : []),
-					...(narrowPc ? [`col-narrow-pc-${narrowPc.span}`] : []),
-					...(pc ? [`col-pc-${pc.span}`] : []),
-					...(widePc ? [`col-wide-pc-${widePc.span}`] : []),
+					...aa({span, offset}),
+					...aa(pad, 'pad-'),
+					...aa(narrowPc, 'narrow-pc-'),
+					...aa(pc, 'pc-'),
+					...aa(widePc, 'wide-pc-'),
 				]
 			},
 			colStyle(){
@@ -71,7 +84,7 @@
 			}
 		}
 
-		@media (min-width: 577px) and (max-width: 768px) {
+		@media (min-width: 577px) {
 			$class-prefix: col-pad-;
 			@for $n from 1 through 24 {
 				&.#{$class-prefix}#{$n} {
@@ -87,7 +100,7 @@
 			}
 		}
 
-		@media (min-width: 769px) and (max-width: 992px) {
+		@media (min-width: 769px) {
 			$class-prefix: col-narrow-pc-;
 			@for $n from 1 through 24 {
 				&.#{$class-prefix}#{$n} {
@@ -103,7 +116,7 @@
 			}
 		}
 
-		@media (min-width: 993px) and (max-width: 1200px) {
+		@media (min-width: 993px) {
 			$class-prefix: col-pc-;
 			@for $n from 1 through 24 {
 				&.#{$class-prefix}#{$n} {
