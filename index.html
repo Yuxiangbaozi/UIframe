@@ -19,18 +19,25 @@
             --border-color-hover: #222;
         }
         .demo{
-            border: 1px solid blue;
+            border: 1px solid black;
+            min-height: 100px;
         }
     </style>
 </head>
 <body>
 <div id="app">
-    <g-layout>
-        <g-header class="demo"></g-header>
-        <g-content class="demo"></g-content>
-        <g-footer class="demo"></g-footer>
+    <g-layout style="height: 100vh;">
+        <g-sider class="demo">sider</g-sider>
+        <g-layout>
+            <g-header class="demo">header</g-header>
+            <g-layout>
+                <g-sider class="demo">sider</g-sider>
+                <g-content class="demo">content</g-content>
+            </g-layout>
+            <g-footer class="demo">footer</g-footer>
+        </g-layout>
     </g-layout>
-    <div style="border: 1px solid red;">
+    <div>
         <g-row>
             <g-col span="2"
                    :narrow-pc="{span:8}"
