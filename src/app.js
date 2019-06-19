@@ -35,7 +35,15 @@ new Vue({
 	},
 	methods: {
 		showtoast(){
-			this.$toast('我是 Toast')
+			this.$toast('<strong>我是 Toast</strong>',{
+				enableHtml : true,
+				closeButton: {
+					text: '知道了',
+					callback() {
+						console.log('用户知道了');
+					}
+				},
+			})
 		},
 		inputChange: function (xxx) {
 			console.log(xxx)
