@@ -18,64 +18,12 @@
             --border-color: #999;
             --border-color-hover: #222;
         }
-        .demo{
-            border: 1px solid black;
-            min-height: 100px;
-        }
     </style>
 </head>
 <body>
 <div id="app">
-    <g-layout style="height: 100vh;">
-        <g-sider class="demo">sider</g-sider>
-        <g-layout>
-            <g-header class="demo">header</g-header>
-            <g-layout>
-                <g-sider class="demo">sider</g-sider>
-                <g-content class="demo">content</g-content>
-            </g-layout>
-            <g-footer class="demo">footer</g-footer>
-        </g-layout>
-    </g-layout>
     <div>
-        <g-row>
-            <g-col span="2"
-                   :narrow-pc="{span:8}"
-                   :pc="{span:13}"
-                   :wide-pc="{span:18}">1</g-col>
-            <g-col span="22"
-                   :narrow-pc="{span:16}"
-                   :pc="{span:11}"
-                   :wide-pc="{span:6}">2</g-col>
-        </g-row>
-    </div>
-    <hr>
-    <div>
-        <g-input value="张三" disabled></g-input>
-        <g-input value="李四" readonly></g-input>
-        <g-input value="王八" @change="inputChange" @blur="inputBlur" @input="inputInput" @focus="inputFocus"></g-input>
-    </div>
-    <div>
-        <g-input value="陈五" error="不能少于两个汉子字符"></g-input>
-    </div>
-    <div>
-        <g-input v-model="message"></g-input>
-        <p>{{message}}</p>
-    </div>
-    <div>
-    <g-button icon="shezhi" iconposition="right" @click="loading1 = !loading1" :loading="loading1">
-        按我
-    </g-button>
-        <g-button icon="shezhi" :loading="false">
-            按我
-        </g-button>
-        <g-button :loading="true">
-            按我
-        </g-button>
-        <g-button-group>
-            <g-button icon="left">上一页</g-button>
-            <g-button icon="right">下一页</g-button>
-        </g-button-group>
+        <button @click="showtoast">点我</button>
     </div>
 </div>
 <script src="./src/app.js"></script>

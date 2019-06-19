@@ -16,7 +16,6 @@
 		},
 		mounted() {
 			this.$children.forEach((child)=>{
-				console.log(child.$options.name)
 				if (child.$options.name === 'g-sider') {
 					this.layClass.hasSider = true
 				}
