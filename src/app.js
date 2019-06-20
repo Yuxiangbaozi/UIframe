@@ -36,6 +36,7 @@ new Vue({
 	methods: {
 		showtoast(){
 			this.$toast('<strong>我是 Toast</strong>',{
+				position: 'middle',
 				enableHtml : true,
 				closeButton: {
 					text: '知道了',
