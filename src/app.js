@@ -34,7 +34,7 @@ new Vue({
 		message: '陈',
 	},
 	methods: {
-		showtoast(){
+		showToast(){
 			this.$toast('<strong>我是 Toast</strong>',{
 				position: 'middle',
 				enableHtml : true,
