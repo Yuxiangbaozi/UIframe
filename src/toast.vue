@@ -80,6 +80,19 @@
 </script>
 
 <style scoped lang="scss">
+	$animation-time: 0.3s;
+	@keyframes middle-fade-in {
+		0% {opacity: 0;}
+		100% {opacity: 1;}
+	}
+	@keyframes top-fade-in {
+		0% {transform: translateX(-50%) translateY(-100%);}
+		100% {transform: translateX(-50%) translateY(0);}
+	}
+	@keyframes bottom-fade-in {
+		0% {transform: translateX(-50%) translateY(100%);}
+		100% {transform: translateX(-50%) translateY(0);}
+	}
 	.toast{
 		color: white;
 		display: flex;
@@ -90,7 +103,7 @@
 		line-height: 1.8;
 		min-height: 40px;
 		background: rgba(0,0,0,0.75);
-		border-radius: 4px;
+		border-radius: 8px;
 		box-shadow: 0 0 3px 0 rgba(0,0,0,0.5);
 		padding: 0 16px;
 		& .message{
@@ -109,14 +122,21 @@
 		&.position-top{
 			top: 0;
 			transform: translateX(-50%);
+			animation: top-fade-in $animation-time linear;
+			border-top-left-radius: 0;
+			border-top-right-radius: 0;
 		}
 		&.position-bottom{
 			bottom: 0;
 			transform: translateX(-50%);
+			animation: bottom-fade-in $animation-time linear;
+			border-bottom-left-radius: 0;
+			border-bottom-right-radius: 0;
 		}
 		&.position-middle{
 			top: 50%;
-			transform: translateX(-50%);
+			transform: translateX(-50%) translateY(-50%);
+			animation: middle-fade-in $animation-time linear;
 
 		}
 	}
