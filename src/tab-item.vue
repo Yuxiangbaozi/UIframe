@@ -17,6 +17,10 @@
 			name: {
 				type: String|Number,
 				require: true,
+			},
+			disable: {
+				type: Boolean,
+				default: false
 			}
 		},
 		created() {

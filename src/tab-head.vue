@@ -11,14 +11,6 @@
 	export default {
 		name: "g-tab-head",
 		inject: ['eventBus'],
-		props: {
-			disable: {
-				type: Boolean,
-				default: false
-			}
-		},
-		created() {
-		}
 	}
 </script>
 
