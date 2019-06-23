@@ -93,5 +93,6 @@ describe('Button', () => {
 		bt.$on('click', callback)
 		bt.$el.click()
 		expect(callback).to.have.been.called
+		bt.$destroy()
 	})
 })
