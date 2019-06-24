@@ -32,7 +32,16 @@
 			}
 		},
 		mounted() {
-			this.eventBus.$emit('update:selected',this.selectTab)
+			this.$children.forEach((vm)=> {
+				if (vm.$options.name === 'g-tab-head'){
+					vm.$children.forEach((item)=> {
+						if (item.$options.name === "g-tab-item" && item.name === this.selectTab){
+							this.eventBus.$emit('update:selected',this.selectTab,item)
+						}
+					})
+				}
+			})
+
 		}
 	}
 </script>

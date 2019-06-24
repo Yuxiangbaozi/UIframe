@@ -30,7 +30,7 @@
 		},
 		methods: {
 			XXX(){
-				this.eventBus.$emit('update:selected',this.name)
+				this.eventBus.$emit('update:selected',this.name,this)
 			}
 		},
 		computed: {
@@ -44,11 +44,17 @@
 </script>
 
 <style scoped lang="scss">
+	$font-color: blue;
 	.tab-item{
 		flex-shrink: 0;
 		padding: 0 2em;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		height: 100%;
 		&.active{
-			color: red;
+			color: $font-color;
+			font-weight: bold;
 		}
 	}
 </style>
