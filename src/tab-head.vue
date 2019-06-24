@@ -12,10 +12,11 @@
 	export default {
 		name: "g-tab-head",
 		inject: ['eventBus'],
-		created() {
+		mounted() {
 			this.eventBus.$on('update:selected',(name,vm)=> {
-				console.log(name);
-				console.log(vm);
+				let {width,left} = vm.$el.getBoundingClientRect()
+				this.$refs.line.style.width = `${width}px`
+				this.$refs.line.style.transform = `translateX(${left}px)`
 			})
 		}
 	}
@@ -37,7 +38,7 @@
 			position: absolute;
 			bottom: 0;
 			border-bottom: 1px solid $border-color;
-			width: 100%;
+			transition: all 0.3s;
 		}
 	}
 </style>
