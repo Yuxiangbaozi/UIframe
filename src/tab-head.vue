@@ -31,8 +31,10 @@
 		align-items: center;
 		height: $height;
 		position: relative;
+		border-bottom: 1px solid #bbb;
 		& .action-wrapper{
 			margin-left: auto;
+			padding: 0 1em;
 		}
 		& .line{
 			position: absolute;

@@ -41,8 +41,9 @@
 
 <style scoped lang="scss">
 	.tab-pane{
+		padding: 1em;
 		&.active{
-			color: red;
+			color: blue;
 		}
 	}
 </style>
