@@ -13,11 +13,13 @@
 		name: "g-tab-head",
 		inject: ['eventBus'],
 		mounted() {
-			this.eventBus.$on('update:selected',(name,vm)=> {
-				let {width,left} = vm.$el.getBoundingClientRect()
-				this.$refs.line.style.width = `${width}px`
-				this.$refs.line.style.transform = `translateX(${left}px)`
-			})
+			if (this.eventBus) {
+				this.eventBus.$on('update:selected',(name,vm)=> {
+					let {width,left} = vm.$el.getBoundingClientRect()
+					this.$refs.line.style.width = `${width}px`
+					this.$refs.line.style.transform = `translateX(${left}px)`
+				})
+			}
 		}
 	}
 </script>

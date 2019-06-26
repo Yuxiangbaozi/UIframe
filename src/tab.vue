@@ -9,9 +9,9 @@
 	export default {
 		name: "g-tabs",
 		props: {
-			selectTab: {
+			selected: {
 				type: String,
-				default: 'sport'
+				required: true,
 			},
 			direction: {
 				type: String,
@@ -35,8 +35,8 @@
 			this.$children.forEach((vm)=> {
 				if (vm.$options.name === 'g-tab-head'){
 					vm.$children.forEach((item)=> {
-						if (item.$options.name === "g-tab-item" && item.name === this.selectTab){
-							this.eventBus.$emit('update:selected',this.selectTab,item)
+						if (item.$options.name === "g-tab-item" && item.name === this.selected){
+							this.eventBus.$emit('update:selected',this.selected,item)
 						}
 					})
 				}

@@ -1,5 +1,5 @@
 <template>
-	<div class="tab-pane" @click="YYY" :class="classes" v-if="active">
+	<div class="tab-pane" @click="YYY" :class="classes" :data-name="name" v-if="active">
 		<slot></slot>
 	</div>
 </template>
@@ -20,13 +20,18 @@
 			}
 		},
 		created() {
-			this.eventBus.$on('update:selected',(name)=> {
-				this.active = name === this.name;
-			})
+			if (this.eventBus) {
+				this.eventBus.$on('update:selected', (name) => {
+					this.active = name === this.name;
+				})
+			}
 		},
 		methods: {
 			YYY(){
-				this.eventBus.$emit('update:selected',this.name,this)
+				if (this.eventBus) {
+					this.eventBus.$emit('update:selected',this.name,this)
+					this.$emit('click',this)
+				}
 			}
 		},
 		computed: {

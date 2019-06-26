@@ -22,9 +22,9 @@
 </head>
 <body>
 <div id="app">
-    <g-tab :select="selectTab" @update:selected=" selectTab = $event">
+    <g-tab :selected.sync="selectTab">
         <g-tab-head>
-            <g-tab-item name="girl" disable>美女</g-tab-item>
+            <g-tab-item name="girl">美女</g-tab-item>
             <g-tab-item name="finance">财经</g-tab-item>
             <g-tab-item name="sport">体育</g-tab-item>
             <template slot="action">

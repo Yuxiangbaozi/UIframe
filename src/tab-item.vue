@@ -1,5 +1,5 @@
 <template>
-	<div class="tab-item" @click="XXX" :class="classes">
+	<div class="tab-item" @click="XXX" :class="classes" :data-name="name">
 		<slot></slot>
 	</div>
 </template>
@@ -24,14 +24,19 @@
 			}
 		},
 		created() {
-			this.eventBus.$on('update:selected',(name)=> {
-				this.active = name === this.name;
-			})
+			if (this.eventBus) {
+				this.eventBus.$on('update:selected', (name) => {
+					this.active = name === this.name;
+				})
+			}
 		},
 		methods: {
 			XXX(){
 				if (this.disable) {return}
-				this.eventBus.$emit('update:selected',this.name,this)
+				if (this.eventBus) {
+					this.eventBus.$emit('update:selected',this.name,this)
+					this.$emit('click',this)
+				}
 			}
 		},
 		computed: {
