@@ -1,9 +1,11 @@
 <template>
 	<div class="popover" @click.stop="xxx">
-		<div class="content-wrapper" v-if="active" @click.stop>
-			<slot name="content"></slot>
+		<div class="wrapper" v-if="active" @click.stop ref="contentWrapper">
+			<slot name="pcontent"></slot>
 		</div>
-		<slot></slot>
+		<div ref="tiger">
+			<slot></slot>
+		</div>
 	</div>
 </template>
 
@@ -20,6 +22,10 @@
 				this.active = !this.active
 				if(this.active === true){
 					this.$nextTick(()=> {
+						document.body.appendChild(this.$refs.contentWrapper)
+						let{left,top} = this.$refs.tiger.getBoundingClientRect()
+						this.$refs.contentWrapper.style.left = left + window.scrollX +'px'
+						this.$refs.contentWrapper.style.top = top + window.scrollY +'px'
 						let x = ()=> {
 							this.active = false
 							document.removeEventListener('click',x)
@@ -37,10 +43,12 @@
 		display: inline-block;
 		vertical-align: top;
 		position: relative;
-		.content-wrapper{
-			position: absolute;
-			bottom: 100%;
-			left: 0;
-		}
+		left: 100px;
+		top: 50px;
+	}
+	.wrapper{
+		border: 1px solid red;
+		position: absolute;
+		transform: translateY(-100%);
 	}
 </style>
