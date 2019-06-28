@@ -22,21 +22,12 @@
 </head>
 <body>
 <div id="app">
-    <g-tab :selected.sync="selectTab">
-        <g-tab-head>
-            <g-tab-item name="girl">美女</g-tab-item>
-            <g-tab-item name="finance">财经</g-tab-item>
-            <g-tab-item name="sport">体育</g-tab-item>
-            <template slot="action">
-                <button>设置</button>
-            </template>
-        </g-tab-head>
-        <g-tab-body>
-            <g-tab-pane name="girl">美女相关</g-tab-pane>
-            <g-tab-pane name="finance">财经相关</g-tab-pane>
-            <g-tab-pane name="sport">体育相关</g-tab-pane>
-        </g-tab-body>
-    </g-tab>
+	<g-popover>
+		<template slot="content">
+			<div>popover内容</div>
+		</template>
+		<bottom>点我</bottom>
+	</g-popover>
 </div>
 <script src="./src/app.js"></script>
 </body>
