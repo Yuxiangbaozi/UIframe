@@ -1,6 +1,6 @@
 <template>
-	<div class="popover" @click.stop="xxx">
-		<div class="wrapper" v-if="active" @click.stop ref="contentWrapper">
+	<div class="popover" @click="xxx" ref="popover">
+		<div class="wrapper" v-if="active" ref="contentWrapper">
 			<slot name="pcontent"></slot>
 		</div>
 		<div ref="tiger">
@@ -12,41 +12,68 @@
 <script>
 	export default {
 		name: "g-popover",
-		data(){
+		data() {
 			return {
 				active: false
 			}
 		},
 		methods: {
-			xxx(){
-				this.active = !this.active
-				if(this.active === true){
-					this.$nextTick(()=> {
-						document.body.appendChild(this.$refs.contentWrapper)
-						let{left,top} = this.$refs.tiger.getBoundingClientRect()
-						this.$refs.contentWrapper.style.left = left + window.scrollX +'px'
-						this.$refs.contentWrapper.style.top = top + window.scrollY +'px'
-						let x = ()=> {
-							this.active = false
-							document.removeEventListener('click',x)
-						}
-						document.addEventListener('click',x)
-					})
-				}else {return}
+			eventA(cl){
+				if (this.$refs.popover &&
+					this.$refs.popover === cl.target ||
+					this.$refs.popover.contains(cl.target)) {
+					return;
+				}
+				if (this.$refs.contentWrapper && this.$refs.contentWrapper.contains(cl.target)) {
+					return;
+				}else {
+					this.close()
+				}
+			},
+			positionContent() {
+				document.body.appendChild(this.$refs.contentWrapper)
+				let {left, top} = this.$refs.tiger.getBoundingClientRect()
+				this.$refs.contentWrapper.style.left = left + window.scrollX + 'px'
+				this.$refs.contentWrapper.style.top = top + window.scrollY + 'px'
+			},
+			listenDocument() {
+				document.addEventListener('click', this.eventA)
+			},
+			open(){
+				this.active = true
+				this.$nextTick(() => {
+					this.positionContent()
+					this.listenDocument()
+				})
+			},
+			close(){
+				this.active = false
+				console.log('结束监听');
+				document.removeEventListener('click', this.eventA)
+			},
+			xxx(cl) {
+				if (this.$refs.tiger.contains(cl.target)) {
+					if (this.active === true) {
+						this.close()
+					} else {
+						this.open()
+					}
+				}
 			}
 		},
 	}
 </script>
 
 <style scoped lang="scss">
-	.popover{
+	.popover {
 		display: inline-block;
 		vertical-align: top;
 		position: relative;
 		left: 100px;
 		top: 50px;
 	}
-	.wrapper{
+	
+	.wrapper {
 		border: 1px solid red;
 		position: absolute;
 		transform: translateY(-100%);
