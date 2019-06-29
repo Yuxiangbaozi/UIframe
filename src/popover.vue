@@ -41,23 +41,18 @@
 				}
 			},
 			positionContent() {
-				document.body.appendChild(this.$refs.contentWrapper)
-				let {height: height2} = this.$refs.contentWrapper.getBoundingClientRect()
-				let {left,top,bottom,right,height} = this.$refs.tiger.getBoundingClientRect()
-				if (this.position === 'top') {
-					this.$refs.contentWrapper.style.left = left + window.scrollX + 'px'
-					this.$refs.contentWrapper.style.top = top + window.scrollY + 'px'
-				}else if (this.position === 'bottom') {
-					this.$refs.contentWrapper.style.left = left + window.scrollX + 'px'
-					this.$refs.contentWrapper.style.top = bottom + window.scrollY + 'px'
-				}else if (this.position === 'left') {
-					this.$refs.contentWrapper.style.left = left + window.scrollX + 'px'
-					this.$refs.contentWrapper.style.top = top + window.scrollY + (height - height2)/2 + 'px'
-				}else if (this.position === 'right') {
-					this.$refs.contentWrapper.style.left = right + window.scrollX + 'px'
-					this.$refs.contentWrapper.style.top = top + window.scrollY + (height - height2)/2 + 'px'
-				}
+				const {contentWrapper,tiger} = this.$refs
+				document.body.appendChild(contentWrapper)
+				const {height: height2} = contentWrapper.getBoundingClientRect()
+				const {left,top,bottom,right,height} = tiger.getBoundingClientRect()
+				let select = {
+					top: {top: top + window.scrollY, left: left + window.scrollX,},
+					bottom: {top: bottom + window.scrollY, left: left + window.scrollX,},
+					left: {top: top + window.scrollY + (height - height2)/2, left: left + window.scrollX,},
+					right: {top: top + window.scrollY + (height - height2)/2, left: right + window.scrollX,}}
 				
+				contentWrapper.style.top = select[this.position].top + 'px'
+				contentWrapper.style.left = select[this.position].left + 'px'
 			},
 			listenDocument() {
 				document.addEventListener('click', this.eventA)
