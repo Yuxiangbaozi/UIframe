@@ -8,6 +8,7 @@ import tabBody from '../src/tab-body'
 import TabItem from '../src/tab-item'
 import TabPane from '../src/tab-pane'
 
+Vue.component('g-tab',Tab)
 Vue.component('g-tab-head',tabHead);
 Vue.component('g-tab-body',tabBody);
 Vue.component('g-tab-item',TabItem);
@@ -37,7 +38,6 @@ describe('TabPane', () => {
 				name: 'aaa',
 			}
 		}).$mount()
-		console.log(tab.$el.outerHTML);
 		expect(tab.$el.getAttribute('data-name')).to.eq('aaa')
 	});
 

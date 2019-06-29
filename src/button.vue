@@ -44,7 +44,7 @@
 		border-radius: var(--border-radius);
 		border: 1px solid var(--border-color);
 		background: var(--button-bg);
-		vertical-align: top;
+		vertical-align: baseline;
 		&:hover {border-color: var(--border-color-hover);}
 		&:active {background: var(--button-active-bg);}
 		&:focus {outline: none;}

@@ -2,7 +2,7 @@
 	<div class="popover" ref="popover">
 		<div class="wrapper" v-if="active" ref="contentWrapper"
 		     :class="{[`position-${position}`]: true}">
-			<slot name="pcontent"></slot>
+			<slot name="pcontent" :close="close"></slot>
 		</div>
 		<div ref="tiger">
 			<slot></slot>
@@ -142,11 +142,13 @@
 			transform: translateY(-100%);
 			margin-top: -0.5em;
 			&::before{
+				border-bottom: none;
 				border-top-color: #000;
 				top: 100%;
 				left: 10%;
 			}
 			&::after{
+				border-bottom: none;
 				border-top-color: #ffffff;
 				top: calc(100% - 1px);
 				left: 10%;
@@ -156,11 +158,13 @@
 			filter: drop-shadow(0 -1px 1px rgba(0,0,0,0.5));
 			margin-top: 0.5em;
 			&::before{
+				border-top: none;
 				border-bottom-color: #000;
 				bottom: 100%;
 				left: 10%;
 			}
 			&::after{
+				border-top: none;
 				border-bottom-color: #ffffff;
 				bottom: calc(100% - 1px);
 				left: 10%;
@@ -170,12 +174,14 @@
 			transform: translateX(-100%);
 			margin-left: -0.5em;
 			&::before{
+				border-right: none;
 				border-left-color: #000;
 				transform: translateY(-50%);
 				left: 100%;
 				top: 50%;
 			}
 			&::after{
+				border-right: none;
 				border-left-color: #ffffff;
 				transform: translateY(-50%);
 				left: calc(100% - 1px);
@@ -185,12 +191,14 @@
 		&.position-right{
 			margin-left: 0.5em;
 			&::before{
+				border-left: none;
 				border-right-color: #000;
 				transform: translateY(-50%);
 				right: 100%;
 				top: 50%;
 			}
 			&::after{
+				border-left: none;
 				border-right-color: #ffffff;
 				transform: translateY(-50%);
 				right: calc(100% - 1px);
