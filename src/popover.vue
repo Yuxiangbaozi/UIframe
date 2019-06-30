@@ -24,7 +24,7 @@
 				this.$refs.popover.addEventListener('click',this.xxx)
 			}else {
 				this.$refs.popover.addEventListener('mouseenter',()=> {
-					this.open()
+					this.show()
 					if (this.clock !== null) {
 						clearTimeout(this.clock)
 					}
@@ -40,7 +40,7 @@
 			if (this.trigger === 'click') {
 				this.$refs.popover.removeEventListener('click',this.xxx)
 			}else {
-				this.$refs.popover.removeEventListener('mouseenter',this.open)
+				this.$refs.popover.removeEventListener('mouseenter',this.show)
 				this.$refs.popover.removeEventListener('mouseleave',this.close)
 			}
 		},
@@ -110,7 +110,7 @@
 					this.$refs.contentWrapper.addEventListener('mouseleave', this.eventC)
 				}
 			},
-			open(){
+			show(){
 				this.active = true
 				this.$nextTick(() => {
 					this.positionContent()
@@ -131,7 +131,7 @@
 					if (this.active === true) {
 						this.close()
 					} else {
-						this.open()
+						this.show()
 					}
 				}
 			}
