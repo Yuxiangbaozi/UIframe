@@ -147,8 +147,6 @@
 		display: inline-block;
 		vertical-align: top;
 		position: relative;
-		left: 100px;
-		top: 50px;
 	}
 	
 	.wrapper {
