@@ -15,15 +15,25 @@
 		name: "g-popover",
 		data() {
 			return {
-				active: false
+				active: false,
+				clock: null,
 			}
 		},
 		mounted(){
 			if (this.trigger === 'click') {
 				this.$refs.popover.addEventListener('click',this.xxx)
 			}else {
-				this.$refs.popover.addEventListener('mouseenter',this.open)
-				this.$refs.popover.addEventListener('mouseleave',this.close)
+				this.$refs.popover.addEventListener('mouseenter',()=> {
+					this.open()
+					if (this.clock !== null) {
+						clearTimeout(this.clock)
+					}
+				})
+				this.$refs.popover.addEventListener('mouseleave',()=> {
+					this.clock = setTimeout(()=> {
+						this.close()
+					},100)
+				})
 			}
 		},
 		destroyed(){
@@ -57,7 +67,9 @@
 					this.$refs.popover.contains(cl.target)) {
 					return;
 				}
-				if (this.$refs.contentWrapper && this.$refs.contentWrapper.contains(cl.target)) {
+				if (this.$refs.contentWrapper &&
+					this.$refs.contentWrapper=== cl.target ||
+					this.$refs.contentWrapper.contains(cl.target)) {
 					return;
 				}else {
 					this.close()
@@ -77,13 +89,30 @@
 				contentWrapper.style.top = select[this.position].top + 'px'
 				contentWrapper.style.left = select[this.position].left + 'px'
 			},
-			listenDocument() {
+			listenDocument(){
 				document.addEventListener('click', this.eventA)
+			},
+			listenPopover(){
+				if (this.trigger === 'hover') {
+					if (this.$refs.contentWrapper) {
+						this.$refs.contentWrapper.addEventListener('mouseenter',()=> {
+							if (this.clock !== null) {
+								clearTimeout(this.clock)
+							}
+						})
+					}
+					this.$refs.contentWrapper.addEventListener('mouseleave',()=> {
+						this.clock = setTimeout(()=> {
+							this.close()
+						},100)
+					})
+				}
 			},
 			open(){
 				this.active = true
 				this.$nextTick(() => {
 					this.positionContent()
+					this.listenPopover()
 					this.listenDocument()
 				})
 			},
