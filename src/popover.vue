@@ -75,6 +75,16 @@
 					this.close()
 				}
 			},
+			eventB(){
+				if (this.clock !== null) {
+					clearTimeout(this.clock)
+				}
+			},
+			eventC(){
+				this.clock = setTimeout(()=> {
+					this.close()
+				},100)
+			},
 			positionContent() {
 				const {contentWrapper,tiger} = this.$refs
 				document.body.appendChild(contentWrapper)
@@ -95,17 +105,9 @@
 			listenPopover(){
 				if (this.trigger === 'hover') {
 					if (this.$refs.contentWrapper) {
-						this.$refs.contentWrapper.addEventListener('mouseenter',()=> {
-							if (this.clock !== null) {
-								clearTimeout(this.clock)
-							}
-						})
+						this.$refs.contentWrapper.addEventListener('mouseenter', this.eventB)
 					}
-					this.$refs.contentWrapper.addEventListener('mouseleave',()=> {
-						this.clock = setTimeout(()=> {
-							this.close()
-						},100)
-					})
+					this.$refs.contentWrapper.addEventListener('mouseleave', this.eventC)
 				}
 			},
 			open(){
@@ -119,6 +121,10 @@
 			close(){
 				this.active = false
 				document.removeEventListener('click', this.eventA)
+				if (this.trigger === 'hover') {
+					this.$refs.contentWrapper.removeEventListener('mouseenter', this.eventB)
+					this.$refs.contentWrapper.removeEventListener('mouseleave', this.eventC)
+				}
 			},
 			xxx(cl) {
 				if (this.$refs.tiger.contains(cl.target)) {
