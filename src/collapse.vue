@@ -6,20 +6,24 @@
 
 <script>
 	import Vue from 'vue'
+	import CollapseItem from './collapse-item'
 	export default {
 		name: "g-collapse",
 		data(){
 			return{
-				eventBus: new Vue()
+				eventBus: new Vue(),
 			}
+		},
+		components: {
+			'g-collapse-item': CollapseItem
 		},
 		props: {
 			single: {
 				type: Boolean,
-				default: false,
+				default: false
 			},
 			selected: {
-				type: String,
+				type: Array
 			}
 		},
 		provide(){
@@ -29,6 +33,26 @@
 		},
 		mounted() {
 			this.eventBus.$emit('update:selected',this.selected)
+			
+			this.eventBus.$on('update:addSelected',(value)=> {
+				let selectedCopy = JSON.parse(JSON.stringify(this.selected))
+				if (this.single) {
+					selectedCopy = [value]
+				} else {
+					selectedCopy.push(value)
+				}
+				this.eventBus.$emit('update:selected',selectedCopy)
+				this.$emit('update:selected',selectedCopy)
+			})
+			
+			this.eventBus.$on('update:removeSelected',(value)=> {
+				let selectedCopy = JSON.parse(JSON.stringify(this.selected))
+				let index = selectedCopy.indexOf(value)
+				selectedCopy.splice(index, 1)
+				this.eventBus.$emit('update:selected',selectedCopy)
+				this.$emit('update:selected',selectedCopy)
+			})
+			
 		}
 	}
 </script>

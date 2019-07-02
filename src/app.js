@@ -46,7 +46,7 @@ Vue.component('g-collapse-item',CollapseItem);
 new Vue({
 	el: '#app',
 	data: {
-		selectTab: 'finance'
+		selectTab: ['2','1']
 	},
 	methods: {
 		showToast(){
@@ -58,7 +58,7 @@ new Vue({
 					callback() {
 						console.log('用户知道了');
 					}
-				},
+				}
 			})
 		},
 		inputChange: function (xxx) {

@@ -4,7 +4,7 @@
 			<div v-html="$slots.default[0]" v-if="enableHtml"></div>
 			<slot v-else></slot>
 		</div>
-		<div class="line" ref="line"></div>
+		<div class="line" ref="line" v-if="closeButton"></div>
 		<span class="close" v-if="closeButton" @click="onclickClose()">{{closeButton.text}}</span>
 	</div>
 </template>
@@ -21,12 +21,8 @@
 				}
 			},
 			closeButton: {
-				type: Object,
-				default: ()=> {
-					return {
-						test: '关闭', callback: undefined
-					}
-				}
+				type: Object || Boolean,
+				default: null
 			},
 			enableHtml: {
 				type: Boolean,
@@ -60,9 +56,11 @@
 				}
 			},
 			updateStyle(){
-				this.$nextTick(()=> {
-					this.$refs.line.style.height = `${this.$refs.toast.getBoundingClientRect().height}px`
-				})
+				if (this.closeButton) {
+					this.$nextTick(()=> {
+						this.$refs.line.style.height = `${this.$refs.toast.getBoundingClientRect().height}px`
+					})
+				}
 			},
 			close(){
 				this.$el.remove()
@@ -93,6 +91,7 @@
 		100% {transform: translateX(-50%) translateY(0);}
 	}
 	.toast{
+		z-index: 30;
 		color: white;
 		display: flex;
 		align-items: center;

@@ -1,5 +1,6 @@
 <template>
-	<button class="g-button" :class="{[`icon-${iPosition}`]: true}" @click="$emit('click')">
+	<button class="g-button" :class="{[`icon-${iPosition}`]: true ,disable}" 
+	@click="$emit('click')">
 		<div class="view">
 			<g-icon v-if="icon && !loading" :icon="icon"></g-icon>
 			<g-icon class="loading" v-if="loading" icon="loading"></g-icon>
@@ -24,7 +25,11 @@
 				validator :function(value){
 					return !(value !== 'left' && value !== 'right');
 				}
-			}
+			},
+			disable: {
+				type: Boolean,
+				default: false
+			},
 		},
 		components: {
 			'g-icon' : Icon,
@@ -33,20 +38,29 @@
 </script>
 
 <style lang="scss" scoped>
+	$button-height: 32px;
+	$font-size: 14px;
+	$button-bg: white;
+	$button-active-bg: #eee;
+	$border-radius: 5px;
+	$color: #333;
+	$border-color: #999;
+	$border-color-hover: #222;
 	.g-button {
 		@keyframes spin {
 			0%{transform: rotate(0deg)}
 			100%{transform: rotate(360deg)}
 		}
-		font-size: var(--font-size);
-		height: var(--button-height);
+		font-size: $font-size;
+		height: $button-height;
 		padding: 0 0.85em;
-		border-radius: var(--border-radius);
-		border: 1px solid var(--border-color);
-		background: var(--button-bg);
-		vertical-align: baseline;
-		&:hover {border-color: var(--border-color-hover);}
-		&:active {background: var(--button-active-bg);}
+		border-radius: $border-radius;
+		border: 1px solid $border-color;
+		background: $button-bg;
+		vertical-align: middle;
+		&.disable {cursor: not-allowed; background: $button-active-bg; color: $border-color}
+		&:hover {border-color: $border-color-hover;}
+		&:active {background: $button-active-bg;}
 		&:focus {outline: none;}
 		&{>.view{
 			display: inline-flex;

@@ -1,13 +1,13 @@
 <template>
 	<svg class="g-icon" aria-hidden="true">
-		<use v-bind:xlink:href=`#i-${icon}`></use>
+		<use v-bind:xlink:href="`#i-${icon}`"></use>
 	</svg>
 </template>
 
 <script>
 	import './svg'
 	export default {
-		name: "icon",
+		name: "g-icon",
 		props: ['icon'],
 	}
 </script>

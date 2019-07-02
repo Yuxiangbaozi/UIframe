@@ -12,7 +12,11 @@
 <script>
 	export default {
 		name: "g-collapse-item",
-		inject: ['eventBus'],
+		data(){
+			return {
+				show: false,
+			}
+		},
 		props: {
 			title: {
 				type: String,
@@ -23,33 +27,23 @@
 				required: true,
 			}
 		},
-		data(){
-			return {
-				show: false,
-			}
-		},
+		inject: ['eventBus'],
 		mounted() {
-			this.eventBus && this.eventBus.$on('update:selected', (name) => {
-				if (name !== this.name) {
-					this.close()
+			this.eventBus.$on('update:selected', (names) => {
+				if (names.indexOf(this.name) >= 0) {
+					this.show = true
 				} else {
-					this.open()
+					this.show = false
 				}
 			})
 		},
 		methods: {
 			toggle(){
 				if (this.show === false){
-					this.eventBus && this.eventBus.$emit('update:selected',this.name)
+					this.eventBus.$emit('update:addSelected',this.name)
 				} else {
-					this.show = false
+					this.eventBus.$emit('update:removeSelected',this.name)
 				}
-			},
-			close(){
-				this.show = false
-			},
-			open(){
-				this.show = true
 			},
 		}
 	}
