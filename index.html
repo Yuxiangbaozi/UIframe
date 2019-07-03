@@ -19,9 +19,22 @@
 	</g-collapse>
 	{{selectTab}}
 	<div>
-		<g-button @click="$toast('我是Toast')">上方弹出</g-button>
-		<g-button @click="$toast('我是Toast',{position: 'middle'})">中间弹出</g-button>
-		<g-button @click="$toast('我是Toast',{position: 'bottom'})">下面弹出</g-button>
+		<g-layout style="color: white; overflow:hidden; margin-bottom:50px;">
+			<g-header style="height: 50px; background:lightskyblue;">
+				header
+			</g-header>
+			<g-layout>
+				<g-sider style="height: 100px; background:#ddd; width:200px; color: black;">
+					sider
+				</g-sider>
+				<g-content style="height: 100px; background:deepskyblue;">
+					content
+				</g-content>
+			</g-layout>
+			<g-footer style="height: 50px; background:lightskyblue;">
+				footer
+			</g-footer>
+		</g-layout>
 	</div>
 </div>
 <script src="./src/app.js"></script>
