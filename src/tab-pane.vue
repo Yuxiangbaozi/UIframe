@@ -7,7 +7,7 @@
 <script>
 	export default {
 		name: "g-tab-pane",
-		inject: ['eventBus'],
+		inject: ['akafjc'],
 		data(){
 			return {
 				active: false
@@ -20,16 +20,16 @@
 			}
 		},
 		created() {
-			if (this.eventBus) {
-				this.eventBus.$on('update:selected', (name) => {
+			if (this.akafjc) {
+				this.akafjc.$on('update:selected', (name) => {
 					this.active = name === this.name;
 				})
 			}
 		},
 		methods: {
 			YYY(){
-				if (this.eventBus) {
-					this.eventBus.$emit('update:selected',this.name,this)
+				if (this.akafjc) {
+					this.akafjc.$emit('update:selected',this.name,this)
 					this.$emit('click',this)
 				}
 			}

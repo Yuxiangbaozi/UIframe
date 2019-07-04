@@ -11,7 +11,7 @@
 		name: "g-collapse",
 		data(){
 			return{
-				eventBus: new Vue(),
+				akafjc: new Vue(),
 			}
 		},
 		components: {
@@ -23,33 +23,33 @@
 				default: false
 			},
 			selected: {
-				type: Array
+				type: Array || String
 			}
 		},
 		provide(){
 			return {
-				eventBus: this.eventBus
+				akafjc: this.akafjc
 			}
 		},
 		mounted() {
-			this.eventBus.$emit('update:selected',this.selected)
+			this.akafjc.$emit('update:selected',this.selected)
 			
-			this.eventBus.$on('update:addSelected',(value)=> {
+			this.akafjc.$on('update:addSelected',(value)=> {
 				let selectedCopy = JSON.parse(JSON.stringify(this.selected))
 				if (this.single) {
 					selectedCopy = [value]
 				} else {
 					selectedCopy.push(value)
 				}
-				this.eventBus.$emit('update:selected',selectedCopy)
+				this.akafjc.$emit('update:selected',selectedCopy)
 				this.$emit('update:selected',selectedCopy)
 			})
 			
-			this.eventBus.$on('update:removeSelected',(value)=> {
+			this.akafjc.$on('update:removeSelected',(value)=> {
 				let selectedCopy = JSON.parse(JSON.stringify(this.selected))
 				let index = selectedCopy.indexOf(value)
 				selectedCopy.splice(index, 1)
-				this.eventBus.$emit('update:selected',selectedCopy)
+				this.akafjc.$emit('update:selected',selectedCopy)
 				this.$emit('update:selected',selectedCopy)
 			})
 			

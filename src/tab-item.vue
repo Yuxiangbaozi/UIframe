@@ -7,7 +7,7 @@
 <script>
 	export default {
 		name: "g-tab-item",
-		inject: ['eventBus'],
+		inject: ['akafjc'],
 		data(){
 			return {
 				active: false
@@ -24,8 +24,8 @@
 			}
 		},
 		created() {
-			if (this.eventBus) {
-				this.eventBus.$on('update:selected', (name) => {
+			if (this.akafjc) {
+				this.akafjc.$on('update:selected', (name) => {
 					this.active = name === this.name;
 				})
 			}
@@ -33,8 +33,8 @@
 		methods: {
 			XXX(){
 				if (this.disable) {return}
-				if (this.eventBus) {
-					this.eventBus.$emit('update:selected',this.name,this)
+				if (this.akafjc) {
+					this.akafjc.$emit('update:selected',this.name,this)
 					this.$emit('click',this)
 				}
 			}

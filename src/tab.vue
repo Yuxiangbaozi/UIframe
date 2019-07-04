@@ -23,12 +23,12 @@
 		},
 		data(){
 			return {
-				eventBus: new Vue()
+				akafjc: new Vue()
 			}
 		},
 		provide(){
 			return {
-				eventBus: this.eventBus
+				akafjc: this.akafjc
 			}
 		},
 		mounted() {
@@ -36,7 +36,7 @@
 				if (vm.$options.name === 'g-tab-head'){
 					vm.$children.forEach((item)=> {
 						if (item.$options.name === "g-tab-item" && item.name === this.selected){
-							this.eventBus.$emit('update:selected',this.selected,item)
+							this.akafjc.$emit('update:selected',this.selected,item)
 						}
 					})
 				}

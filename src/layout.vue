@@ -26,18 +26,18 @@
 				},
 				xxx: false,
 				yyy: false,
-				eventBus: new Vue(),
+				eventhub: new Vue(),
 			}
 		},
 		provide(){
 			return {
-				eventBus: this.eventBus
+				eventhub: this.eventhub
 			}
 		},
 		methods: {
 			clickButton(){
 				this.yyy = false
-				this.eventBus.$emit('update:send', this.yyy)
+				this.eventhub.$emit('update:send', this.yyy)
 			}
 		},
 		mounted() {
@@ -51,8 +51,8 @@
 					}
 				}
 			})
-			this.eventBus.$emit('update:send',this.yyy)
-			this.eventBus.$on('update:change',(value)=> {
+			this.eventhub.$emit('update:send',this.yyy)
+			this.eventhub.$on('update:change',(value)=> {
 				if (value === false){
 					setTimeout(()=> {
 						this.yyy = true

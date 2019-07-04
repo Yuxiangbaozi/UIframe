@@ -27,9 +27,9 @@
 				required: true,
 			}
 		},
-		inject: ['eventBus'],
+		inject: ['akafjc'],
 		mounted() {
-			this.eventBus.$on('update:selected', (names) => {
+			this.akafjc.$on('update:selected', (names) => {
 				if (names.indexOf(this.name) >= 0) {
 					this.show = true
 				} else {
@@ -40,9 +40,9 @@
 		methods: {
 			toggle(){
 				if (this.show === false){
-					this.eventBus.$emit('update:addSelected',this.name)
+					this.akafjc.$emit('update:addSelected',this.name)
 				} else {
-					this.eventBus.$emit('update:removeSelected',this.name)
+					this.akafjc.$emit('update:removeSelected',this.name)
 				}
 			},
 		}

@@ -11,7 +11,7 @@
 	import Button from './button'
 	export default {
 		name: "g-sider",
-		inject: ['eventBus'],
+		inject: ['eventhub'],
 		data(){
 			return {
 				visible: true
@@ -23,11 +23,11 @@
 		methods: {
 			onClick(){
 				this.visible = false
-				this.eventBus.$emit('update:change',this.visible)
+				this.eventhub.$emit('update:change',this.visible)
 			}
 		},
 		mounted() {
-			this.eventBus.$on('update:send',(value)=> {
+			this.eventhub.$on('update:send',(value)=> {
 				if (value === false){
 					this.visible = true
 				}

@@ -11,10 +11,10 @@
 <script>
 	export default {
 		name: "g-tab-head",
-		inject: ['eventBus'],
+		inject: ['akafjc'],
 		mounted() {
-			if (this.eventBus) {
-				this.eventBus.$on('update:selected',(name,vm)=> {
+			if (this.akafjc) {
+				this.akafjc.$on('update:selected',(name, vm)=> {
 					let {width,left} = vm.$el.getBoundingClientRect()
 					this.$refs.line.style.width = `${width}px`
 					this.$refs.line.style.transform = `translateX(${left}px)`
