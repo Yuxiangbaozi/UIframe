@@ -48,8 +48,8 @@
 		& .close{
 			position: absolute;
 			right: -12px;
-			buttom: 50%;
-			transform: translateY(36px);
+			top: 50%;
+			transform: translateY(-16px);
 		}
 	}
 	.slide-enter-active, .slide-leave-active {

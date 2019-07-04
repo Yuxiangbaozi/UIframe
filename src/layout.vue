@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="wrapper">
 		<div class="layout" :class="layClass" v-if="xxx">
 			<slot></slot>
 			<g-button class="open" icon="right" @click="clickButton" v-show="yyy"></g-button>
@@ -78,6 +78,10 @@
 		border-top-left-radius: 0;
 		border-bottom-left-radius: 0;
 	}
+	.wrapper{
+		display: flex;
+		flex-grow: 1;
+	}
 	.layout{
 		display:flex;
 		flex-direction: column;
@@ -85,6 +89,7 @@
 		border: 1px solid #888;
 		&.hasSider{
 			dispaly:flex;
+			flex-grow: 1;
 			flex-direction: row;
 		}
 		& .open{
