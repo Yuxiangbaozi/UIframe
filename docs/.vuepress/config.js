@@ -19,7 +19,7 @@ module.exports = {
 				children: [
 					'/components/button.md',
 					'/components/collapse.md',
-					'/components/gird.md',
+					'/components/grid.md',
 					'/components/input.md',
 					'/components/layout.md',
 					'/components/popover.md',

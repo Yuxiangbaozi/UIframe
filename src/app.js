@@ -20,6 +20,8 @@ import TabPane from './tab-pane'
 import Popover from './popover'
 import Collapse from './collapse'
 import CollapseItem from './collapse-item'
+import Test1 from './test-1'
+import Test2 from './test-2'
 
 Vue.component('g-icon',Icon);
 Vue.component('g-button',Button);
@@ -42,6 +44,8 @@ Vue.component('g-tab-pane',TabPane);
 Vue.component('g-popover',Popover);
 Vue.component('g-collapse',Collapse);
 Vue.component('g-collapse-item',CollapseItem);
+Vue.component('g-test-1',Test1);
+Vue.component('g-test-2',Test2);
 
 new Vue({
 	el: '#app',
