@@ -1,6 +1,6 @@
 <template>
 	<div class="col" :class="colClasses" :style="colStyle">
-		<div style="border: 1px solid blue; height: 100px;">
+		<div class="wrapper">
 			<slot></slot>
 		</div>
 	</div>
@@ -68,6 +68,12 @@
 </script>
 
 <style scoped lang="scss">
+	*{box-sizing: border-box}
+	.wrapper{
+		border: 1px solid #ccc; 
+		height: 100px; 
+		background-color: #eee
+	}
 	.col{
 		height: 100px;
 		$class-prefix: col-;

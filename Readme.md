@@ -5,17 +5,17 @@
 ## 介绍
 这是我学习Vue过程中做的一个UI框架，希望能帮到你
 ## 开始使用
-####1. 添加CSS样式<br>
+#### 1. 添加CSS样式<br>
 使用本框架前请在CSS开启使用border-box<br>
 (IE8及以上浏览器支持该样式)
-```angular1
+```
 *{box-sizing: border-box;}
 *::before{box-sizing: border-box;}
 *::after{box-sizing: border-box;}
 ```
 你还需要设置默认样式变量（后续改进）<br>
 (IE15及以上浏览器支持该样式)
-```angular2
+```
 html{
   --button-height: 32px;
   --font-size: 14px;
@@ -27,12 +27,12 @@ html{
   --border-color-hover: #222;
 }
 ```
-####2. 安装UI框架<br>
-```angular3
+#### 2. 安装UI框架<br>
+```
 npm i -S UIframe
 ```
-####3. 引入UI框架
-```angular4
+#### 3. 引入UI框架
+```
 import {Button,ButtonGroup,Icon} for 'UIframe'
 import 'UIframe/dist/index.css'
 
@@ -45,7 +45,7 @@ export default {
 }
 ```
 ## 文档
-
+  注意：该框架经vuepress打包上传官网后，绑定在eventBus下面所有事件会失效，故官网一些用到该功能的组件无法体验，待修复
 ## 提问
 
 ## 更新历史

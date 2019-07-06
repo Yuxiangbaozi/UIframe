@@ -1,16 +1,16 @@
 <template>
 	<div>
 		<h4>预览</h4>
-		<g-tabs :selected="selected">
-			<g-tabs-head>
-				<g-tabs-item name="1">1</g-tabs-item>
-				<g-tabs-item name="2">2</g-tabs-item>
-			</g-tabs-head>
-			<g-tabs-body>
-				<g-tabs-pane name="1">content 1</g-tabs-pane>
-				<g-tabs-pane name="2">content 2</g-tabs-pane>
-			</g-tabs-body>
-		</g-tabs>
+		<g-tab :selected="selected">
+			<g-tab-head>
+				<g-tab-item name="1">1</g-tab-item>
+				<g-tab-item name="2">2</g-tab-item>
+			</g-tab-head>
+			<g-tab-body>
+				<g-tab-pane name="1">content 1</g-tab-pane>
+				<g-tab-pane name="2">content 2</g-tab-pane>
+			</g-tab-body>
+		</g-tab>
 		<h4>代码</h4>
 		<pre><code>{{content}}</code></pre>
 	</div>
@@ -35,16 +35,16 @@
 			return {
 				selected: '1',
 				content: `
-<g-tabs :selected="selected">
-  <g-tabs-head>
-    <g-tabs-item name="1">1</g-tabs-item>
-    <g-tabs-item name="2">2</g-tabs-item>
-  </g-tabs-head>
-  <g-tabs-body>
-    <g-tabs-pane name="1">content 1</g-tabs-pane>
-    <g-tabs-pane name="2">content 2</g-tabs-pane>
-  </g-tabs-body>
-</g-tabs>`.trim()
+<g-tab :selected="selected">
+  <g-tab-head>
+    <g-tab-item name="1">1</g-tab-item>
+    <g-tab-item name="2">2</g-tab-item>
+  </g-tab-head>
+  <g-tab-body>
+    <g-tab-pane name="1">content 1</g-tab-pane>
+    <g-tab-pane name="2">content 2</g-tab-pane>
+  </g-tab-body>
+</g-tab>`.trim()
 			}
 		}
 	}

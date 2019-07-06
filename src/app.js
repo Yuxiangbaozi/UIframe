@@ -50,6 +50,7 @@ Vue.component('g-test-2',Test2);
 new Vue({
 	el: '#app',
 	data: {
+		selected: '1',
 		selectTab: ['2','1']
 	},
 	methods: {

@@ -11,6 +11,7 @@
 </template>
 
 <script>
+  import Button from './button'
 	export default {
 		name: "g-popover",
 		data() {
@@ -18,6 +19,9 @@
 				active: false,
 				clock: null,
 			}
+		},
+		components: {
+			'g-button': Button
 		},
 		mounted(){
 			if (this.trigger === 'click') {

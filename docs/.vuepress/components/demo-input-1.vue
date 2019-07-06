@@ -20,7 +20,10 @@
 		data(){
 			return {
 				content: `
-				`
+<g-input></g-input>
+<g-input value="1"></g-input>
+<g-input value="22" disabled></g-input>
+<g-input value="333" readonly></g-input>`.trim()
 			}
 		}
 	}

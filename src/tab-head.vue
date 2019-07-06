@@ -13,11 +13,14 @@
 		name: "g-tab-head",
 		inject: ['akafjc'],
 		mounted() {
+			
 			if (this.akafjc) {
 				this.akafjc.$on('update:selected',(name, vm)=> {
 					let {width,left} = vm.$el.getBoundingClientRect()
+					let app = document.body.querySelector('#app')
+					let left1 = app.getBoundingClientRect().left
 					this.$refs.line.style.width = `${width}px`
-					this.$refs.line.style.transform = `translateX(${left}px)`
+					this.$refs.line.style.transform = `translateX(${left-left1}px)`
 				})
 			}
 		}

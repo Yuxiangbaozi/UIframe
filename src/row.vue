@@ -38,6 +38,7 @@
 </script>
 
 <style scoped lang="scss">
+	*{box-sizing: border-box}
 	.row{
 		display: flex;
 		&.align-left{

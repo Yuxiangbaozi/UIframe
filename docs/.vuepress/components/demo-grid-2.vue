@@ -80,5 +80,5 @@
 </script>
 
 <style scoped lang="scss">
-	* {box-sizing: border-box;}
+	*{box-sizing: border-box;}
 </style>

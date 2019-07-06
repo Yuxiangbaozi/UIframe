@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "module": "ES2015",           // 这里还是采用了 node 的模块方案
+    "moduleResolution": "Node",     // 查找模块采用的策略，Classic 或 Node
+    "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "removeComments": false,
+    "noImplicitAny": true,
+    "suppressImplicitAnyIndexErrors": true,  // 当 noImplicitAny 为 true 时，不报 implicit index errors
+    "strictNullChecks": true ,
+  },
+  "exclude": [ "node_modules" ]
+}

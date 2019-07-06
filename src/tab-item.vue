@@ -5,6 +5,7 @@
 </template>
 
 <script>
+	
 	export default {
 		name: "g-tab-item",
 		inject: ['akafjc'],
