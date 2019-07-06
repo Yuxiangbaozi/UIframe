@@ -13,10 +13,22 @@
 <body>
 <div id="app" style="position: relative; left: 100px; top: 100px; width: 500px;">
 	<div>
-		<g-test-1>
-			<g-test-2></g-test-2>
-		</g-test-1>
-	</div>
+	    <g-test-1>
+		    <g-test-2></g-test-2>
+	    </g-test-1>
+    </div>
+    <div>
+        <g-tab :selected="selected">
+            <g-tab-head>
+                <g-tab-item name="1">1</g-tab-item>
+                <g-tab-item name="2">2</g-tab-item>
+            </g-tab-head>
+            <g-tab-body>
+                <g-tab-pane name="1">content 1</g-tab-pane>
+                <g-tab-pane name="2">content 2</g-tab-pane>
+            </g-tab-body>
+        </g-tab>
+    </div>
 </div>
 <script src="./src/app.js"></script>
 </body>

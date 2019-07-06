@@ -1,5 +1,5 @@
 <template>
-	<div class="tab-header">
+	<div class="tab-head">
 		<slot></slot>
 		<div class="line" ref="line"></div>
 		<div class="action-wrapper">
@@ -13,12 +13,11 @@
 		name: "g-tab-head",
 		inject: ['akafjc'],
 		mounted() {
-			
 			if (this.akafjc) {
 				this.akafjc.$on('update:selected',(name, vm)=> {
 					let {width,left} = vm.$el.getBoundingClientRect()
 					let app = document.body.querySelector('#app')
-					let left1 = app.getBoundingClientRect().left
+					let left1 = app.offsetLeft
 					this.$refs.line.style.width = `${width}px`
 					this.$refs.line.style.transform = `translateX(${left-left1}px)`
 				})
@@ -30,15 +29,17 @@
 <style scoped lang="scss">
 	$height: 40px;
 	$border-color: blue;
-	.tab-header{
+	.tab-head{
 		display: flex;
 		justify-content: flex-start;
-		align-items: center;
 		height: $height;
 		position: relative;
 		border-bottom: 1px solid #bbb;
 		& .action-wrapper{
 			margin-left: auto;
+			display: flex;
+			align-items: center;
+			justify-content: center;
 			padding: 0 1em;
 		}
 		& .line{

@@ -88,14 +88,14 @@
 		flex-grow: 1;
 		border: 1px solid #888;
 		&.hasSider{
-			dispaly:flex;
+			display: flex;
 			flex-grow: 1;
 			flex-direction: row;
 		}
 		& .open{
 			position: absolute;
 			left: 0;
-			buttom: 50%;
+			bottom: 50%;
 			transform: translateY(36px);
 		}
 	}

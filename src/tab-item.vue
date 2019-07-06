@@ -66,7 +66,7 @@
 		}
 		&.disable{
 			color: #bbb;
-			cursor: no-drop;
+			cursor: not-allowed;
 		}
 	}
 </style>
