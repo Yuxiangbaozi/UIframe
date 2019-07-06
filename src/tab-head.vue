@@ -15,11 +15,10 @@
 		mounted() {
 			if (this.akafjc) {
 				this.akafjc.$on('update:selected',(name, vm)=> {
-					let {width,left} = vm.$el.getBoundingClientRect()
-					let app = document.body.querySelector('#app')
-					let left1 = app.offsetLeft
+					let {width} = vm.$el.getBoundingClientRect()
+					let left = vm.$el.offsetLeft
 					this.$refs.line.style.width = `${width}px`
-					this.$refs.line.style.transform = `translateX(${left-left1}px)`
+					this.$refs.line.style.transform = `translateX(${left}px)`
 				})
 			}
 		}
