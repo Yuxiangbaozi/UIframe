@@ -1,10 +1,13 @@
 <template>
 	<div>
-		<g-collapse selected="['1','2']" >
+		<h4>预览</h4>
+		<g-collapse :selected="['1','2']" >
 			<g-collapse-item title="标题1" name="1">内容1</g-collapse-item>
 			<g-collapse-item title="标题2" name="2">内容2</g-collapse-item>
 			<g-collapse-item title="标题3" name="3">内容3</g-collapse-item>
 		</g-collapse>
+		<h4>代码</h4>
+		<pre><code>{{content}}</code></pre>
 	</div>
 </template>
 
@@ -21,12 +24,8 @@
 		},
 		data(){
 			return {
-				selected: {
-					type:String,
-					default: '1'
-				},
 				content: `
-<g-collapse :selected.sync="selectTab">
+<g-collapse :selected="[1,2]">
   <g-collapse-item title="标题1" name="1">内容1</g-collapse-item>
   <g-collapse-item title="标题2" name="2">内容2</g-collapse-item>
   <g-collapse-item title="标题3" name="3">内容3</g-collapse-item>

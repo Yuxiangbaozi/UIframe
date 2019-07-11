@@ -23,7 +23,7 @@
 				default: false
 			},
 			selected: {
-				type: Array || String
+				type: Array
 			}
 		},
 		provide(){
@@ -32,27 +32,26 @@
 			}
 		},
 		mounted() {
-			this.akafjc.$emit('update:selected',this.selected)
+			let selectedCopy = JSON.parse(JSON.stringify(this.selected))
+			this.akafjc.$emit('update:selected',selectedCopy)
 			
 			this.akafjc.$on('update:addSelected',(value)=> {
-				let selectedCopy = JSON.parse(JSON.stringify(this.selected))
 				if (this.single) {
-					selectedCopy = [value]
+					selectedCopy = value
 				} else {
-					selectedCopy.push(value)
+					selectedCopy.push(...value)
 				}
 				this.akafjc.$emit('update:selected',selectedCopy)
 				this.$emit('update:selected',selectedCopy)
 			})
 			
 			this.akafjc.$on('update:removeSelected',(value)=> {
-				let selectedCopy = JSON.parse(JSON.stringify(this.selected))
+				console.log(selectedCopy)
 				let index = selectedCopy.indexOf(value)
 				selectedCopy.splice(index, 1)
 				this.akafjc.$emit('update:selected',selectedCopy)
 				this.$emit('update:selected',selectedCopy)
 			})
-			
 		}
 	}
 </script>
@@ -64,6 +63,5 @@
 		display: block;
 		border: 1px solid $border-color;
 		border-radius: $border-radius;
-		
 	}
 </style>

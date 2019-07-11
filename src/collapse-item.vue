@@ -40,7 +40,8 @@
 		methods: {
 			toggle(){
 				if (this.show === false){
-					this.akafjc.$emit('update:addSelected',this.name)
+					let arr = this.name.split('')
+					this.akafjc.$emit('update:addSelected',arr)
 				} else {
 					this.akafjc.$emit('update:removeSelected',this.name)
 				}
